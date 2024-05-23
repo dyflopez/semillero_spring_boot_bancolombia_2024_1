@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -41,5 +42,10 @@ public class CustomerServiceImpl implements ICustomerService {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body("creado correctamente");
+    }
+
+    @Override
+    public List<CustomerEntity> getAllItems() {
+        return this.iCustomerRepository.findAll();
     }
 }
